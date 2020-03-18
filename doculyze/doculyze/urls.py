@@ -12,6 +12,6 @@ from web.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', web_views.home, name='home'),
-    path('basic-upload', BasicUploadView.as_view(),  name='basic_upload'),
-
+    path('basic-upload/', BasicUploadView.as_view(),  name='basic_upload'),
+    path('analyze-docs/', AnalyzeView.as_view(), name='analyze')
 ]

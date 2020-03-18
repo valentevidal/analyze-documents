@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+
+
+
+
+{% block content %}
+<div class=" mt-5">
+    <div class="jumbotron">
+
+    
+        <table style="width:100%" border="1">
+            <h2> Documents:</h2>
+            <tr>
+                {% for txt in data.files %}
+                <span><strong>       &emsp; {{txt}}       &emsp;  </strong></span>
+                {% endfor %} 
+            </tr>
+               
+            
+            {% for word in data.total_most_common %}
+
+
+          
+            <tr>
+                <td>
+                    {{word}}
+                </td>
+                
+
+                    <td>
+                    {% for key, info in data.items %}
+
+                    
+                    {% if key in data.files %}
+                        {% for sentence in info.sentences %}
+
+                            {% if word.0|add:"</strong>"   in sentence %}
+    
+                                    
+                                        <br>                        
+                                        {{sentence|safe}}
+                                        </br>
+                                        
+                            {% endif %}
+
+                                 
+
+                        {% endfor%}
+                    {% endif %}
+                    
+
+                    {% endfor %}
+                </td>
+                    
+
+            </tr>
+            {% endfor %}
+        </table>
+      
+
+    </div>
+</div>
+{% endblock %}

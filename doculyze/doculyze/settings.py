@@ -131,6 +131,10 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+STOP_WORDS_DIR = os.path.join(BASE_DIR, 'web\\stopwords.txt')
+
+NLTK_DATA = os.path.join(BASE_DIR, 'doculyze\\web\\nltk_data\\')
+
 
 try:
     from .local_settings import *

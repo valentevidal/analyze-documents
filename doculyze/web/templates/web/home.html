@@ -20,7 +20,7 @@
           <table id="gallery" class="table table-bordered">
             <thead>
               <tr>
-                <th>Documents</th>
+                <th>Documents:</th>
               </tr>
             </thead>
             <tbody>
@@ -31,6 +31,41 @@
               {% endfor %}
             </tbody>
           </table>
+
+          <!-- <button type="button" class="btn btn-primary">Analize Documents</button> -->
+
+
+
+          <div >
+            <form class="docs-post-form" action="/analyze-docs/" method="POST", autocomplete="off">  
+                {% csrf_token %} 
+                {{ formset.management_form }}
+
+                <div id="form_set">
+                {% for form in formset %}
+
+                <table class='no_error'>
+                    {{ form }}
+                </table>
+                
+
+
+
+                {% endfor %}
+                </div>
+                <br>
+                <button class="btn btn-primary"  type="submit" type="submit">Analyze Documents</button>
+            </form>
+            <div id="empty_form" style="display:none">
+                <table class='no_error'>
+                    {{ formset.empty_form }}
+                </table>
+            </div>
+        </div>
+
+
+
+
 
 
 
